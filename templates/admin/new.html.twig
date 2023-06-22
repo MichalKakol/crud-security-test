@@ -1,0 +1,26 @@
+{% extends 'user/admin.html.twig' %}
+
+{% block title %}New Dier{% endblock %}
+
+{% block body %}
+    <h1>Toevoegen van een dier</h1>
+
+    <form method="post" action="{{ path('admin_dier_new') }}">
+        {{ form_start(form) }}
+
+        <div class="form-group mt-3">
+            {{ form_label(form.name, 'Naam van het dier') }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+
+        <div class="form-group mt-3">
+            {{ form_label(form.description, 'Beschrijving van het dier') }}
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+
+        <button class="btn btn-dark mt-3" type="submit">{{ button_label|default('Opslaan') }}</button>
+
+        {{ form_end(form) }}
+    </form>
+{% endblock %}
+

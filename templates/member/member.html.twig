@@ -1,0 +1,37 @@
+{% extends 'user/member.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="">Welkom {{ userNName }}!</h1>
+            <p class="">
+                Dit is de member pagina
+            </p>
+        </div>
+        <div class="row">
+            <h2>De dieren in het dierenrijk</h2>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Land naam</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dier in diers %}
+                <tr>
+                    <td>{{ dier.name }}</td>
+                    <td>{{ dier.description }}</td>
+                    <td>{{ dier.user.part }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
